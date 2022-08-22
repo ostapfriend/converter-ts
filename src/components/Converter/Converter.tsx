@@ -8,8 +8,8 @@ import { getAllCurrency } from "../../api/api";
 
 export const Converter = () => {
   /* STATE */
-  const [queryFrom, setQueryFrom] = useState(1);
-  const [queryTo, setQueryTo] = useState(1);
+  const [currencyFrom, setCurrencyFrom] = useState(1);
+  const [currencyTo, setCurrencyTo] = useState(1);
   const [selectedCurrencyTo, setSelectedCurrencyTo] = useState("USD");
 
   /* STORE */
@@ -27,12 +27,12 @@ export const Converter = () => {
   useEffect(() => {
     getCurrenciesFromServer(baseCurrency);
     converter();
-  }, [queryFrom, baseCurrency, selectedCurrencyTo]);
+  }, [currencyFrom, baseCurrency, selectedCurrencyTo]);
 
   const handleSetQueryFrom = (event: { target: { value: string } }) => {
     const { value } = event.target;
     const onlyNumber = parseInt(value.replace(/[^\d]/g, ""));
-    setQueryFrom(onlyNumber);
+    setCurrencyFrom(onlyNumber);
   };
 
   const handleSelectCurrencyFrom = (event: { target: { value: string } }) => {
@@ -45,7 +45,7 @@ export const Converter = () => {
 
   const reset = () => {
     converter();
-    setQueryFrom(1);
+    setCurrencyFrom(1);
   };
 
   const converter = () => {
@@ -58,8 +58,8 @@ export const Converter = () => {
     });
 
     if (valueFromCountry) {
-      const convertCurrency = valueFromCountry * queryFrom;
-      setQueryTo(convertCurrency);
+      const convertCurrency = valueFromCountry * currencyFrom;
+      setCurrencyTo(convertCurrency);
     }
   };
 
@@ -76,7 +76,7 @@ export const Converter = () => {
         <div className="converter__container">
           <input
             className="input is-info"
-            value={queryFrom}
+            value={currencyFrom}
             onChange={handleSetQueryFrom}
             type="text"
           />
@@ -84,9 +84,9 @@ export const Converter = () => {
             <div className="select">
               <select value={baseCurrency} onChange={handleSelectCurrencyFrom}>
                 {currencies &&
-                  Object.keys(currencies.results).map((value) => (
-                    <option key={value} value={value}>
-                      {value}
+                  Object.keys(currencies.results).map((currency) => (
+                    <option key={currency} value={currency}>
+                      {currency}
                     </option>
                   ))}
               </select>
@@ -100,7 +100,7 @@ export const Converter = () => {
         <div className="converter__container">
           <input
             className="input is-info"
-            value={queryTo}
+            value={currencyTo}
             type="text"
             onChange={() => 0}
           />
@@ -111,9 +111,9 @@ export const Converter = () => {
                 onChange={handleSelectCurrencyTo}
               >
                 {currencies &&
-                  Object.keys(currencies.results).map((value) => (
-                    <option key={value} value={value}>
-                      {value}
+                  Object.keys(currencies.results).map((currency) => (
+                    <option key={currency} value={currency}>
+                      {currency}
                     </option>
                   ))}
               </select>
