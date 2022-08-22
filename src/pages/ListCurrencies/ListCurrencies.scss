@@ -1,0 +1,33 @@
+.list-currencies {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #4158D0;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(150,107,206,1) 64%, rgba(0,212,255,1) 100%);
+
+  gap: 15px;
+  padding-top: 50px;
+  height: 1240vh;
+
+
+  &__container {
+    height: 100vh;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 50%;
+    height: 50px;
+
+    color: white;
+    background-color: #03334b;
+    border: 2px solid #03334b;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
