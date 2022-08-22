@@ -7,7 +7,6 @@ import './Main.scss';
 
 import { selectors, actions } from '../../store/index';
 
-
 export const Main = () => {
   /* STATE */
   const [queryFrom, setQueryFrom] = useState(1);
@@ -84,7 +83,6 @@ export const Main = () => {
         currencies={currencies}
         onReset={reset}
       />
-
     </div>
   )
 }
