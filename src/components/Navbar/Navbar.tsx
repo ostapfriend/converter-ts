@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <Link to="/" className="navbar-item">
+          <Link to="/converter-ts" className="navbar-item">
             Home
           </Link>
 

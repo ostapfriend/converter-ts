@@ -14,7 +14,7 @@ export function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Main />}/>
+        <Route path="/converter-ts" element={<Main />}/>
         <Route path="/list-currencies" element={<ListCurrencies/>}/>
         <Route path="*" element={<PageNotFound />}/>
       </Routes>
