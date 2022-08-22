@@ -1,31 +1,25 @@
-import {
-  createStore,
-  combineReducers,
-  applyMiddleware,
-} from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-import currenciesReducer, { Currencies } from './currencies';
+import currenciesReducer, { Currencies } from "./currencies";
 import {
   actions as CurrenciesActions,
   selectors as currenciesSeletors,
-} from './currencies';
+} from "./currencies";
 
-import baseCurrencyReducer, { BaseCurrency } from './baseCurrency';
+import baseCurrencyReducer, { BaseCurrency } from "./baseCurrency";
 import {
   actions as BaseCurrencyActions,
-  selectors as BaseCurrencySelectors
-} from './baseCurrency';
+  selectors as BaseCurrencySelectors,
+} from "./baseCurrency";
 
 export const actions = { CurrenciesActions, BaseCurrencyActions };
 
 export const selectors = {
-  getCurrencies: (state: { currencies: Currencies }) => (
-    currenciesSeletors.getCurrencies(state.currencies)
-  ),
-  getBaseCurrency: (state: {baseCurrency: BaseCurrency}) => (
-    BaseCurrencySelectors.getBaseCurrency(state.baseCurrency)
-  )
+  getCurrencies: (state: { currencies: Currencies }) =>
+    currenciesSeletors.getCurrencies(state.currencies),
+  getBaseCurrency: (state: { baseCurrency: BaseCurrency }) =>
+    BaseCurrencySelectors.getBaseCurrency(state.baseCurrency),
 };
 
 const reducer = combineReducers({
@@ -33,7 +27,4 @@ const reducer = combineReducers({
   baseCurrency: baseCurrencyReducer,
 });
 
-export const store = createStore(
-  reducer,
-  applyMiddleware(thunk)
-);
+export const store = createStore(reducer, applyMiddleware(thunk));

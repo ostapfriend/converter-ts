@@ -1,8 +1,7 @@
 @mixin fontTitleTryAgain {
-  color: #4a58a0;
-  font-size: 40px;
+  color: #dfe1ea;
+  font-size: 70px;
   text-align: center;
-
 }
 
 .pageNotFound {
@@ -22,4 +21,3 @@
     @include fontTitleTryAgain();
   }
 }
-
